@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>茶船古道・六堡春秋 — 六堡茶全产业链科普模拟小游戏</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="theme-color" content="#2F5D43">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="六堡春秋">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="14" y="34" width="62" height="9" rx="4.5" fill="%232f5d43"/><path d="M22 43h50a27 27 0 0 1-50 0z" fill="%238a5a2b"/><path d="M72 46h11a9 9 0 0 1 0 18h-10" fill="none" stroke="%238a5a2b" stroke-width="7" stroke-linecap="round"/><path d="M36 16c-2 7 4 7 2 14M56 16c-2 7 4 7 2 14M46 9c-2 7 4 7 2 14" stroke="%23b3a98f" stroke-width="4.5" fill="none" stroke-linecap="round"/></svg>'>
 <style>
 /* ===== 基础 ===== */
@@ -722,6 +728,14 @@ function goHome(){S.view='start';render();}
 
 /* ---------- 启动 ---------- */
 render();
+</script>
+<script>
+/* PWA 离线缓存注册（file:// 下自动跳过） */
+if ('serviceWorker' in navigator && location.protocol === 'https:') {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./sw.js').catch(function () {});
+  });
+}
 </script>
 </body>
 </html>

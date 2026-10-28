@@ -1,0 +1,24 @@
+{
+  "name": "茶船古道・六堡春秋",
+  "short_name": "六堡春秋",
+  "description": "六堡茶全产业链科普模拟小游戏：种茶、采茶、炒茶制茶、陈化品茶、卖茶五大关卡，边玩边学六堡茶文化。",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#2F5D43",
+  "theme_color": "#2F5D43",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
