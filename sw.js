@@ -1,5 +1,5 @@
 /* 茶船古道・六堡春秋 — 离线缓存 Service Worker */
-const CACHE = 'liubao-chunqiu-v1';
+const CACHE = 'liubao-chunqiu-v2';
 const ASSETS = [
   './',
   './index.html',
