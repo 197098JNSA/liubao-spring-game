@@ -148,7 +148,11 @@ input[type=range]{width:100%;accent-color:var(--green);height:26px;cursor:pointe
 .intro h2::before,.intro h2::after{content:"";display:inline-block;width:34px;height:1px;background:var(--line);vertical-align:middle;margin:0 12px}
 .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 @media (min-width:768px){.cards{grid-template-columns:repeat(5,1fr)}}
-.card{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:16px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
+.card{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:16px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;transition:transform .15s,box-shadow .15s,border-color .15s}
+.card:hover{border-color:var(--green);box-shadow:0 6px 16px rgba(47,93,67,.14);transform:translateY(-2px)}
+.card:active{transform:scale(.97)}
+.card:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.card em{margin-top:2px;font-style:normal;font-size:.78rem;color:#fff;background:var(--green);border-radius:20px;padding:3px 12px;letter-spacing:2px}
 .card svg{width:44px;height:44px}
 .card b{font-size:1.02rem;color:var(--green);letter-spacing:1px;font-weight:normal}
 .card small{font-size:.82rem;color:var(--ink2);line-height:1.6}
@@ -353,7 +357,7 @@ function renderStart(){
   '</section>';
 }
 function stageCard(i,title,desc,icon){
-  return '<div class="card">'+svgIcon(icon)+'<b>'+title+'</b><small>'+desc+'</small></div>';
+  return '<div class="card" role="button" tabindex="0" onclick="goStage('+i+')">'+svgIcon(icon)+'<b>'+title+'</b><small>'+desc+'</small><em>点击进入</em></div>';
 }
 function svgIcon(k){
   if(k==='sprout'){return '<svg viewBox="0 0 48 48" fill="none" stroke="#2f5d43" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 40V22"/><path d="M24 24C24 16 17 12 8 12c0 9 5 16 16 16z"/><path d="M24 20C24 13 29 9 38 9c0 8-4 14-14 14z"/></svg>';}
@@ -724,6 +728,7 @@ function openKnow(k,cb){
 
 /* ---------- 导航 ---------- */
 function startGame(){resetState();render();}
+function goStage(i){resetState();S.stage=i;render();}
 function goHome(){S.view='start';render();}
 
 /* ---------- 启动 ---------- */
